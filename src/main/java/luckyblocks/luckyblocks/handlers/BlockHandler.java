@@ -32,53 +32,62 @@ public class BlockHandler implements Listener {
 
         //player.sendMessage("testing");
 
-        generateRandomOutcome(player);
+        //generateRandomOutcome(player);
 
     }
 
 
-    /**
-     * Generates a random outcome for a player upon a block place or block break action.
-     */
-    public void generateRandomOutcome(Player player){
-
-        //Generate a pseudorandom number from 1 to 10
-        double randomOutcome = Math.random()*10;
-
-        //Determine outcome based on random number
-        if (6.6 < randomOutcome && randomOutcome < 10.0){
-            //Good outcome
-
-            goodOutcome(player);
-
-        } else if (3.3 < randomOutcome && randomOutcome < 6.6){
-            //bad outcome
-
-            badOutcome(player);
-
-        } else {
-            //neutral outcome
-
-            neutralOutcome(player);
-
-        }
-
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event){
 
     }
 
 
-    public void goodOutcome(Player player){
-        player.sendMessage("good");
-    }
 
-    public void badOutcome(Player player){
-        player.sendMessage("bad");
-    }
 
-    public void neutralOutcome(Player player){
-        player.sendMessage("ugly");
 
-    }
+//    /**
+//     * Generates a random outcome for a player upon a block place or block break action.
+//     */
+//    public void generateRandomOutcome(Player player){
+//
+//        //Generate a pseudorandom number from 1 to 10
+//        double randomOutcome = Math.random()*10;
+//
+//        //Determine outcome based on random number
+//        if (6.6 < randomOutcome && randomOutcome < 10.0){
+//            //Good outcome
+//
+//            goodOutcome(player);
+//
+//        } else if (3.3 < randomOutcome && randomOutcome < 6.6){
+//            //bad outcome
+//
+//            badOutcome(player);
+//
+//        } else {
+//            //neutral outcome
+//
+//            neutralOutcome(player);
+//
+//        }
+//
+//
+//    }
+//
+//
+//    public void goodOutcome(Player player){
+//        player.sendMessage("good");
+//    }
+//
+//    public void badOutcome(Player player){
+//        player.sendMessage("bad");
+//    }
+//
+//    public void neutralOutcome(Player player){
+//        player.sendMessage("ugly");
+//
+//    }
 
 
 

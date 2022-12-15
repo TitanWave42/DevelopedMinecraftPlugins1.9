@@ -1,13 +1,18 @@
 package luckyblocks.luckyblocks.EventOutcomes;
 
+import luckyblocks.luckyblocks.ItemHandler.OpItems;
+import org.bukkit.EntityEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.type.Switch;
 import org.bukkit.entity.*;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class EntityDeathOutcomes {
 
@@ -18,7 +23,7 @@ public class EntityDeathOutcomes {
      * Determines if a good, bad, or neutral outcome will happen
      * @param entityKiller
      */
-    public void outcomeDeterminer(Player entityKiller, boolean isChicken){
+    public static void outcomeDeterminer(Player entityKiller, boolean isChicken){
 
         //Shouldn't cause a problem but be on the lookout for a typeCast exception
         int chance = (int) Math.round(Math.random()*20);
@@ -26,7 +31,7 @@ public class EntityDeathOutcomes {
         // one fourth chance of something bad and one 20th chance of something good happening
         if (chance < 5){
             //bad outcome
-            badOutcome(entityKiller);
+            badOutcome(entityKiller, isChicken);
         } else if (chance == 10){
             //good outcome
             goodOutcome(entityKiller, isChicken);
@@ -36,12 +41,32 @@ public class EntityDeathOutcomes {
 
     /**
      * Causes a good outcome to occur
-     * @param entityKiller
+     * @param entityKiller - the player who killed the given entity
      */
-    public void goodOutcome(Player entityKiller, boolean isChicken){
+    private static void goodOutcome(Player entityKiller, boolean isChicken){
 
         if (isChicken){
             //grant op item
+            entityKiller.getInventory().addItem(OpItems.kFCluck);
+        } else {
+            int randomItemChance = (int) Math.round(Math.random()*3);
+
+            switch (randomItemChance){
+                case 0:
+                    entityKiller.getInventory().addItem(OpItems.swordOfSlaying);
+                    break;
+                case 1:
+                    entityKiller.getInventory().addItem(OpItems.gingerSnap);
+                    break;
+                case 2:
+                    entityKiller.getInventory().addItem(OpItems.boingoStick);
+                    break;
+                case 3:
+                    entityKiller.getInventory().addItem(OpItems.goatedBreastPlate);
+
+            }
+
+
         }
 
         //This will provide good items
@@ -56,16 +81,55 @@ public class EntityDeathOutcomes {
 
     /**
      * Causes a bad outcome to occur
-     * @param entityKiller
+     * @param entityKiller - the player who killed the given entity.
      */
 
-    public void badOutcome(Player entityKiller){
+    private static void badOutcome(Player entityKiller, boolean isChicken){
 
+        //Chicken revenge logic.  I find it funny that I'm literally writing a war between
+        //fowl and human interwoven in the larger speedrunning plugin.  Truly what has my life come to?
+        if (isChicken){
+            entityKiller.playEffect(EntityEffect.ENTITY_POOF);
+            entityKiller.sendMessage("FOOD POISONING - courtesy of the Chickens");
+            entityKiller.addPotionEffect(PotionEffectType.CONFUSION.createEffect(50, 10));
+            entityKiller.addPotionEffect(PotionEffectType.HUNGER.createEffect(50, 2));
+            entityKiller.addPotionEffect(PotionEffectType.POISON.createEffect(30, 1));
+        }
 
+        int veryBadOutCome = (int) Math.round(Math.random()*100);
 
+        //Low chance of a truly bad outcome occurring.
+        if (veryBadOutCome < 5) {
+            spawnWither(entityKiller);
+        } else if (veryBadOutCome == 10){
+            bigDaddyExplosion(entityKiller);
+        } else {
 
-        //Explode randomly
-        //get teleported substantially
+            //Handle normal bad outcomes
+            int badOutcome = (int) Math.round(Math.random()*5);
+
+            switch (badOutcome){
+                case 0 :
+                    spawnGhast(entityKiller);
+                    break;
+                case 1 :
+                    spawnGoonSquad(entityKiller);
+                    break;
+                case 2:
+                    tntRain(entityKiller);
+                    break;
+                case 3:
+                    anvilRain(entityKiller);
+                    break;
+                case 4:
+                    randomSmallExplosion(entityKiller);
+                    break;
+                case 5:
+                    telePortPlayerRandomly(entityKiller);
+
+            }
+        }
+
 
     }
 
@@ -74,7 +138,7 @@ public class EntityDeathOutcomes {
      * Spawns a wither
      * @param entityKiller
      */
-    public void spawnWither(Player entityKiller){
+    private static void spawnWither(Player entityKiller){
         World world = entityKiller.getWorld();
 
         Location spawnLocation = entityKiller.getLocation();
@@ -88,7 +152,7 @@ public class EntityDeathOutcomes {
      * Spawns a ghast
      * @param player
      */
-    public void spawnGhast(Player player){
+    private static void spawnGhast(Player player){
 
         World world = player.getWorld();
         Location spawnLocation = player.getLocation();
@@ -101,7 +165,7 @@ public class EntityDeathOutcomes {
      * Spawns a ravager
      * @param player
      */
-    public void spawnRavager(Player player){
+    private static void spawnRavager(Player player){
 
         World world = player.getWorld();
         Location spawnLocation = player.getLocation();
@@ -115,7 +179,7 @@ public class EntityDeathOutcomes {
      * Spawns Between 1 and 5 piglin, 0 and 2 skeletons, and 0-1 creepers.
      * @param player
      */
-    public void spawnGoonSquad(Player player){
+    private static void spawnGoonSquad(Player player){
 
         World world = player.getWorld();
         Location spawnLocation = player.getLocation();
@@ -151,7 +215,7 @@ public class EntityDeathOutcomes {
      * Creates a lit tnt rain that follows the player around.
      * @param player
      */
-    public void tntRain(Player player){
+    private static void tntRain(Player player){
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
@@ -173,7 +237,7 @@ public class EntityDeathOutcomes {
      * Creates an anvil rain that follows the player around.
      * @param player
      */
-    public void anvilRain(Player player){
+    private static void anvilRain(Player player){
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
@@ -194,7 +258,7 @@ public class EntityDeathOutcomes {
      * creates a small explosion centered at the offending player.
      * @param player
      */
-    public void randomSmallExplosion(Player player){
+    private static void randomSmallExplosion(Player player){
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
@@ -208,7 +272,7 @@ public class EntityDeathOutcomes {
      * Note that this should be used exceedingly sparingly because it's super busted and unfair.
      * @param player
      */
-    public void bigDaddyExplosion(Player player){
+    private static void bigDaddyExplosion(Player player){
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
@@ -219,7 +283,7 @@ public class EntityDeathOutcomes {
      * Teleports the player a random number of blocks.
      * @param player
      */
-    public void telePortPlayerRandomly(Player player){
+    private static void telePortPlayerRandomly(Player player){
         Location playerLocation = player.getLocation();
 
         playerLocation.add(Math.random()*10,Math.random()*10,Math.random()*5);

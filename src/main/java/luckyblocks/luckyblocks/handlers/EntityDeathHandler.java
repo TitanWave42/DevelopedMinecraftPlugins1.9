@@ -1,5 +1,6 @@
 package luckyblocks.luckyblocks.handlers;
 
+import luckyblocks.luckyblocks.EventOutcomes.EntityDeathOutcomes;
 import luckyblocks.luckyblocks.LuckyBlocks;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
@@ -21,6 +22,7 @@ public class EntityDeathHandler implements Listener {
     @EventHandler
     public void entityDeathEffect(EntityDeathEvent deathEvent){
         LivingEntity entity = deathEvent.getEntity();
+        boolean isChickenDeath = false;
 
         //Have to verify that player isn't null before using it somewhere.
         Player player = entity.getKiller();
@@ -30,9 +32,14 @@ public class EntityDeathHandler implements Listener {
 
             //check if the death was a chicken death.
             if (isChickenDeath(entity)){
+                isChickenDeath = true;
+            }
 
-            } else {
+            //Randomly determine if there will be an entity death effect
+            int probEntityDeathEffect = (int) Math.round(Math.random()*10);
 
+            if (probEntityDeathEffect == 5){
+                EntityDeathOutcomes.outcomeDeterminer(player, isChickenDeath);
             }
 
         }

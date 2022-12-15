@@ -1,5 +1,7 @@
 package luckyblocks.luckyblocks.handlers;
 
+import luckyblocks.luckyblocks.EventOutcomes.BlockBreakOutcomes;
+import luckyblocks.luckyblocks.EventOutcomes.BlockPlaceOutcomes;
 import luckyblocks.luckyblocks.LuckyBlocks;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -29,6 +31,7 @@ public class BlockHandler implements Listener {
         Block block = event.getBlock();
 
         Player player = event.getPlayer();
+        BlockBreakOutcomes.punishPlayer(player, event);
 
         //player.sendMessage("testing");
 
@@ -39,6 +42,7 @@ public class BlockHandler implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event){
+        BlockPlaceOutcomes.playerReward(event.getPlayer());
 
     }
 

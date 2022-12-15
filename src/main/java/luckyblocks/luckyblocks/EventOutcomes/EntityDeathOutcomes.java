@@ -14,6 +14,7 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+//TODO: Add the door item.  It's aDOORable.
 public class EntityDeathOutcomes {
 
 
@@ -69,11 +70,8 @@ public class EntityDeathOutcomes {
 
         }
 
-        //This will provide good items
-
     }
 
-    //TODO: create three meme items that aren't chicken related and one meme item that is chicken related
 
 
 

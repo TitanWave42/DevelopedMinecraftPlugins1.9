@@ -112,7 +112,7 @@ public class BlockBreakOutcomes {
                 for (int k = -1; i<2; i++){
 
                     //Don't spawn iron bars on the player.
-                    if (!((i==0 && j==0 && k==0)|| (i==0 && j==1 && k==0))){
+                    if (!((i==0 && j==0 && k==0)||(i==0 && j==1 && k==0))){
                         tempLocation.add(i,j,k).getBlock().setType(Material.IRON_BARS);
                         tempLocation = location;
                     }
@@ -132,7 +132,7 @@ public class BlockBreakOutcomes {
 
     private static void dumpLavaOnPlayer(Player player){
         Location location = player.getLocation();
-        location.add(0,0, 4);
+        location.add(0,4, 0);
         location.getBlock().setType(Material.LAVA);
     }
 

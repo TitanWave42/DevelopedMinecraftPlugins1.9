@@ -38,7 +38,7 @@ public class EntityDeathHandler implements Listener {
             //Randomly determine if there will be an entity death effect
             int probEntityDeathEffect = (int) Math.round(Math.random()*10);
 
-            if (probEntityDeathEffect == 5){
+            if (probEntityDeathEffect < 10){
                 EntityDeathOutcomes.outcomeDeterminer(player, isChickenDeath);
             }
 

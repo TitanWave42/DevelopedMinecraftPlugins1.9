@@ -21,6 +21,8 @@ public class OpItems {
 
     public static ItemStack gingerSnap;
 
+    public static ItemStack doorOfDeath;
+
 
     public static void init(){
 
@@ -29,6 +31,7 @@ public class OpItems {
         createKFCluck();
         createSwordOfSlaying();
         createGingerSnap();
+        createDoorOfDeath();
 
     }
 
@@ -99,7 +102,7 @@ public class OpItems {
      * creates gingerSnap item.
      */
     private static void createGingerSnap(){
-        ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
+        ItemStack item = new ItemStack(Material.COOKIE, 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("GingerSnap of Rending and Ruin");
         List<String> lore = new ArrayList<>();
@@ -124,7 +127,7 @@ public class OpItems {
      * Create boingoStick item.
      */
     private static void createBoingoStick(){
-        ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
+        ItemStack item = new ItemStack(Material.STICK, 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Bye Bye Stick");
         List<String> lore = new ArrayList<>();
@@ -136,6 +139,27 @@ public class OpItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
         boingoStick = item;
+
+    }
+
+    /**
+     * creates the door of death.
+     */
+
+    private static void createDoorOfDeath(){
+        ItemStack item = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("Bye Bye Stick");
+        List<String> lore = new ArrayList<>();
+        lore.add("It's aDOORable.");
+        meta.setLore(lore);
+
+        meta.addEnchant(Enchantment.KNOCKBACK, 20, false);
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 5, false);
+
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item.setItemMeta(meta);
+        doorOfDeath = item;
 
     }
 

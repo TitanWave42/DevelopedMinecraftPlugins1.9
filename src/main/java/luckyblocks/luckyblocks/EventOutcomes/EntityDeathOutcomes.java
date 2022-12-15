@@ -33,7 +33,7 @@ public class EntityDeathOutcomes {
         if (chance < 5){
             //bad outcome
             badOutcome(entityKiller, isChicken);
-        } else if (chance == 10){
+        } else if (chance > 15){
             //good outcome
             goodOutcome(entityKiller, isChicken);
         }
@@ -50,7 +50,7 @@ public class EntityDeathOutcomes {
             //grant op item
             entityKiller.getInventory().addItem(OpItems.kFCluck);
         } else {
-            int randomItemChance = (int) Math.round(Math.random()*3);
+            int randomItemChance = (int) Math.round(Math.random()*5);
 
             switch (randomItemChance){
                 case 0:
@@ -64,6 +64,9 @@ public class EntityDeathOutcomes {
                     break;
                 case 3:
                     entityKiller.getInventory().addItem(OpItems.goatedBreastPlate);
+                    break;
+                case 4:
+                    entityKiller.getInventory().addItem(OpItems.doorOfDeath);
 
             }
 
@@ -71,9 +74,6 @@ public class EntityDeathOutcomes {
         }
 
     }
-
-
-
 
 
 

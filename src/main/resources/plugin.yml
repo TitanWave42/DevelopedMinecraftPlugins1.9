@@ -1,0 +1,6 @@
+name: LuckyBlocks
+version: '${project.version}'
+main: luckyblocks.luckyblocks.LuckyBlocks
+api-version: 1.19
+authors: [TitanWave]
+description: A lucky blocks plugin to make speedrunning Minecraft more interesting

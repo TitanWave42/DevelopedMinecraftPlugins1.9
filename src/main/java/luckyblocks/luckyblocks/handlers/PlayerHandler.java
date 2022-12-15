@@ -30,7 +30,7 @@ public class PlayerHandler implements Listener {
         message = "However since I am not without Mercy let me impress upon you one bit of advice to aid you in your Journey.";
         player.sendMessage(message);
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<3; i++){
             player.sendMessage("KILL THE CHICKENS, KILL THE CHICKENS, KILL THE CHICKENS, KILL THE CHICKENS, KILL THE CHICKENS...");
         }
 

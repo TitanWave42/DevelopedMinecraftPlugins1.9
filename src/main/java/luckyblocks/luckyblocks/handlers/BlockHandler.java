@@ -31,18 +31,29 @@ public class BlockHandler implements Listener {
         Block block = event.getBlock();
 
         Player player = event.getPlayer();
-        BlockBreakOutcomes.punishPlayer(player, event);
 
-        //player.sendMessage("testing");
+        double chanceToPunishPlayer = Math.random()*1000;
 
-        //generateRandomOutcome(player);
+        if (chanceToPunishPlayer < 50){
+            BlockBreakOutcomes.punishPlayer(player, event);
+        }
+
+        player.sendMessage("block break testing");
 
     }
 
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event){
-        BlockPlaceOutcomes.playerReward(event.getPlayer());
+
+        double chanceToRewardPlayer = Math.random()*1000;
+
+        if (chanceToRewardPlayer < 50){
+            BlockPlaceOutcomes.playerReward(event.getPlayer());
+        }
+
+        event.getPlayer().sendMessage("block place testing");
+
 
     }
 

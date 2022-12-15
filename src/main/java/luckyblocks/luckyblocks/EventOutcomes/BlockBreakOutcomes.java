@@ -91,8 +91,8 @@ public class BlockBreakOutcomes {
         Location tempLocation = location;
 
         for (int i = -1; i<2; i++){
-            for (int j = -1; j<2; j++){
-                for (int k = 0; i<3; i++){
+            for (int j = 0; j<3; j++){
+                for (int k = -1; i<2; i++){
 
                     tempLocation.add(i,j,k).getBlock().setType(Material.COBWEB);
                     tempLocation = location;
@@ -104,15 +104,17 @@ public class BlockBreakOutcomes {
 
     private static void generateNormalCage(Player player){
         Location location = player.getLocation();
+        Location tempLocation = location;
 
 
         for (int i = -1; i<2; i++){
-            for (int j = -1; j<2; j++){
-                for (int k = 0; i<3; i++){
+            for (int j = 0; j<3; j++){
+                for (int k = -1; i<2; i++){
 
                     //Don't spawn iron bars on the player.
-                    if (!((i==0 && j==0 && k==0)|| (i==0 && j==0 && k==1))){
-                        location.getBlock().setType(Material.IRON_BARS);
+                    if (!((i==0 && j==0 && k==0)|| (i==0 && j==1 && k==0))){
+                        tempLocation.add(i,j,k).getBlock().setType(Material.IRON_BARS);
+                        tempLocation = location;
                     }
                 }
             }

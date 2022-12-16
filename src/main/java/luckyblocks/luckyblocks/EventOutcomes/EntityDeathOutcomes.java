@@ -30,10 +30,10 @@ public class EntityDeathOutcomes {
         int chance = (int) Math.round(Math.random()*20);
 
         // one fourth chance of something bad and one 20th chance of something good happening
-        if (chance < 5){
+        if (chance < 10){
             //bad outcome
             badOutcome(entityKiller, isChicken);
-        } else if (chance > 15){
+        } else if (chance > 10){
             //good outcome
             goodOutcome(entityKiller, isChicken);
         }
@@ -244,7 +244,8 @@ public class EntityDeathOutcomes {
         while (numAnvils > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*30+20, Math.random()*30), Material.ANVIL.createBlockData());
+            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*30+20, Math.random()*30),
+                    Material.ANVIL.createBlockData());
 
             numAnvils--;
 

@@ -12,7 +12,6 @@ public class BlockBreakOutcomes {
 
 
 
-
     public static void punishPlayer(Player player, BlockBreakEvent event){
 
         if (Math.random() < 0.5){
@@ -27,31 +26,31 @@ public class BlockBreakOutcomes {
 
         switch (effectToSelect){
             case 0:
-                player.addPotionEffect(PotionEffectType.SLOW_DIGGING.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20)));
+                player.addPotionEffect(PotionEffectType.SLOW_DIGGING.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 1:
-                player.addPotionEffect(PotionEffectType.HUNGER.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.HUNGER.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 2:
-                player.addPotionEffect(PotionEffectType.POISON.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.POISON.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 3:
-                player.addPotionEffect(PotionEffectType.SLOW.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.SLOW.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 4:
-                player.addPotionEffect(PotionEffectType.WEAKNESS.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.WEAKNESS.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 5:
-                player.addPotionEffect(PotionEffectType.BLINDNESS.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.BLINDNESS.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 6:
-                player.addPotionEffect(PotionEffectType.CONFUSION.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.CONFUSION.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 7:
-                player.addPotionEffect(PotionEffectType.DARKNESS.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.DARKNESS.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 8:
-                player.addPotionEffect(PotionEffectType.WITHER.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20)));
+                player.addPotionEffect(PotionEffectType.WITHER.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
 
         }
 
@@ -66,7 +65,7 @@ public class BlockBreakOutcomes {
                 generateCobwebCage(player);
                 break;
             case 1:
-                generateNormalCage(player);
+                floodPlayer(player);
                 break;
             case 2:
                 spawnPieceOfTNTAtBlock(player, event);
@@ -88,37 +87,31 @@ public class BlockBreakOutcomes {
 
     private static void generateCobwebCage(Player player){
         Location location = player.getLocation();
+
         Location tempLocation = location;
+
 
         for (int i = -1; i<2; i++){
             for (int j = 0; j<3; j++){
                 for (int k = -1; i<2; i++){
 
-                    tempLocation.add(i,j,k).getBlock().setType(Material.COBWEB);
+                    tempLocation = tempLocation.add(i,j,k);
+                    tempLocation.getBlock().setType(Material.AIR);
+                    tempLocation.getBlock().setType(Material.COBWEB);
                     tempLocation = location;
+
                 }
             }
         }
+
 
     }
 
-    private static void generateNormalCage(Player player){
+    private static void floodPlayer(Player player){
         Location location = player.getLocation();
-        Location tempLocation = location;
 
-
-        for (int i = -1; i<2; i++){
-            for (int j = 0; j<3; j++){
-                for (int k = -1; i<2; i++){
-
-                    //Don't spawn iron bars on the player.
-                    if (!((i==0 && j==0 && k==0)||(i==0 && j==1 && k==0))){
-                        tempLocation.add(i,j,k).getBlock().setType(Material.IRON_BARS);
-                        tempLocation = location;
-                    }
-                }
-            }
-        }
+        location.getBlock().setType(Material.WATER);
+        location.add(0,1,0).getBlock().setType(Material.WATER);
 
     }
 
@@ -132,7 +125,7 @@ public class BlockBreakOutcomes {
 
     private static void dumpLavaOnPlayer(Player player){
         Location location = player.getLocation();
-        location.add(0,4, 0);
+        location.add(0,2, 0);
         location.getBlock().setType(Material.LAVA);
     }
 
@@ -140,7 +133,7 @@ public class BlockBreakOutcomes {
         Location blockBreakLocation = event.getBlock().getLocation();
         World world = player.getWorld();
 
-        world.spawnEntity(blockBreakLocation, EntityType.PILLAGER);
+        world.spawnEntity(blockBreakLocation, EntityType.VINDICATOR);
 
     }
 
@@ -153,7 +146,7 @@ public class BlockBreakOutcomes {
     }
 
     private static void teleportPlayerSlightly(Player player){
-        player.teleport(player.getLocation().add(Math.random()*5, Math.random()*3, Math.random()*3));
+        player.teleport(player.getLocation().add(Math.random()*7, Math.random()*3, Math.random()*7));
 
     }
 

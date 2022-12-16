@@ -40,14 +40,15 @@ public class OpItems {
      */
     private static ItemStack createKFCluck(){
         ItemStack item = new ItemStack(Material.COOKED_CHICKEN);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 100);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10000);
+        item.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10000);
+
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("KFCluckOff");
         List<String> lore = new ArrayList<>();
         lore.add("Don't Clucking Mess with Me");
         meta.setLore(lore);
-        meta.addEnchant(Enchantment.FIRE_ASPECT, 50, false);
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 10000, false);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
         return item;
     }
@@ -63,9 +64,13 @@ public class OpItems {
         List<String> lore = new ArrayList<>();
         lore.add("Stabby Sabby");
         meta.setLore(lore);
-        meta.addEnchant(Enchantment.SWEEPING_EDGE, 10, false);
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 10, false);
-        meta.addEnchant(Enchantment.DURABILITY, 10, false);
+
+        item.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 10);
+
+
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
         swordOfSlaying = item;
@@ -83,13 +88,14 @@ public class OpItems {
         lore.add("At least an H cup");
         meta.setLore(lore);
 
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10, false);
-        meta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 10, false);
-        meta.addEnchant(Enchantment.PROTECTION_FIRE, 10, false);
-        meta.addEnchant(Enchantment.PROTECTION_FALL, 10, false);
-        meta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 10, false);
-        meta.addEnchant(Enchantment.WATER_WORKER, 10, false);
-        meta.addEnchant(Enchantment.DURABILITY, 10, false);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 10);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 10);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 10);
+        item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 10);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+        item.addUnsafeEnchantment(Enchantment.THORNS, 10);
 
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -106,15 +112,20 @@ public class OpItems {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("GingerSnap of Rending and Ruin");
         List<String> lore = new ArrayList<>();
-        lore.add("And with this cookie I shall Snap thy presence from mine.");
-        lore.add("With it I shall bring you rend your armour, topple your cities, and bring ruin upon you.");
+        lore.add("And with this cookie I ");
+        lore.add("shall Snap thy presence from mine.");
+        lore.add("With it I shall bring you rend your armour");
+        lore.add("topple your cities, and bring ruin upon you.");
         lore.add("With this cookie I shall bring you low.");
-        lore.add("For the wages of sin is death, but the free gift of the GingerSnap is eternal life in Christ Jesus our Lord.");
+        lore.add("For the wages of sin is death,");
+        lore.add("but the free gift of the GingerSnap is");
+        lore.add("eternal life in Christ Jesus our Lord.");
         meta.setLore(lore);
 
 
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 100, false);
-        meta.addEnchant(Enchantment.KNOCKBACK, 10, false);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 100);
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
+
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         item.setItemMeta(meta);
@@ -134,7 +145,8 @@ public class OpItems {
         lore.add("Tap to make problem disappear.");
         meta.setLore(lore);
 
-        meta.addEnchant(Enchantment.KNOCKBACK, 100, false);
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 100);
+
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
@@ -154,8 +166,9 @@ public class OpItems {
         lore.add("It's aDOORable.");
         meta.setLore(lore);
 
-        meta.addEnchant(Enchantment.KNOCKBACK, 20, false);
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 5, false);
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 20);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
+
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);

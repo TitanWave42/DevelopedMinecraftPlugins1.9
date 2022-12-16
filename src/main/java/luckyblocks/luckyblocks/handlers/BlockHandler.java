@@ -34,7 +34,7 @@ public class BlockHandler implements Listener {
 
         double chanceToPunishPlayer = Math.random()*1000;
 
-        if (chanceToPunishPlayer < 50){
+        if (chanceToPunishPlayer < 100){
             BlockBreakOutcomes.punishPlayer(player, event);
         }
 
@@ -48,7 +48,7 @@ public class BlockHandler implements Listener {
 
         double chanceToRewardPlayer = Math.random()*1000;
 
-        if (chanceToRewardPlayer < 50){
+        if (chanceToRewardPlayer < 100){
             BlockPlaceOutcomes.playerReward(event.getPlayer());
         }
 

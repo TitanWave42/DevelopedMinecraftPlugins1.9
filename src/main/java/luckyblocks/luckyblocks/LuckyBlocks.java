@@ -4,10 +4,8 @@ import luckyblocks.luckyblocks.ItemHandler.OpItems;
 import luckyblocks.luckyblocks.handlers.BlockHandler;
 import luckyblocks.luckyblocks.handlers.EntityDeathHandler;
 import luckyblocks.luckyblocks.handlers.PlayerHandler;
+import luckyblocks.luckyblocks.util.DelayedTask;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LuckyBlocks extends JavaPlugin {
@@ -26,6 +24,7 @@ public final class LuckyBlocks extends JavaPlugin {
 
         new EntityDeathHandler(this);
 
+        new DelayedTask(this);
 
     }
 

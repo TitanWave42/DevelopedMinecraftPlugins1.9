@@ -34,40 +34,40 @@ public class BlockPlaceOutcomes {
 
         switch (effectToSelect){
             case 0:
-                player.addPotionEffect(PotionEffectType.REGENERATION.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.REGENERATION.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*20+1)));
                 break;
             case 1:
                 player.giveExpLevels(5);
                 break;
             case 2:
-                player.addPotionEffect(PotionEffectType.SPEED.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.SPEED.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 3:
-                player.addPotionEffect(PotionEffectType.JUMP.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.JUMP.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 4:
-                player.addPotionEffect(PotionEffectType.HEALTH_BOOST.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.HEALTH_BOOST.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 5:
-                player.addPotionEffect(PotionEffectType.SATURATION.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.SATURATION.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 6:
-                player.addPotionEffect(PotionEffectType.LUCK.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.LUCK.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 7:
-                player.addPotionEffect(PotionEffectType.WATER_BREATHING.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.WATER_BREATHING.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 8:
-                player.addPotionEffect(PotionEffectType.HEAL.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20)));
+                player.addPotionEffect(PotionEffectType.HEAL.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 9:
-                player.addPotionEffect(PotionEffectType.FIRE_RESISTANCE.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.FIRE_RESISTANCE.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 10:
-                player.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
                 break;
             case 11:
-                player.addPotionEffect(PotionEffectType.INCREASE_DAMAGE.createEffect((int) Math.round(Math.random()*60+10), (int) Math.round(Math.random()*20+1)));
+                player.addPotionEffect(PotionEffectType.INCREASE_DAMAGE.createEffect((int) Math.round(Math.random()*520+10), (int) Math.round(Math.random()*5+1)));
 
         }
     }

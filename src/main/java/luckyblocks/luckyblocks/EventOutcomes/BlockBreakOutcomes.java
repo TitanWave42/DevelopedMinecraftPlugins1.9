@@ -10,8 +10,11 @@ import org.bukkit.potion.PotionEffectType;
 
 public class BlockBreakOutcomes {
 
-
-
+    /**
+     * Causes the player to receive a negative effect.
+     * @param player
+     * @param event
+     */
     public static void punishPlayer(Player player, BlockBreakEvent event){
 
         if (Math.random() < 0.5){
@@ -21,41 +24,50 @@ public class BlockBreakOutcomes {
         }
     }
 
+    /**
+     * Gives the player a bad potion effect.
+     * @param player
+     */
     private static void givePlayerBadEffect(Player player){
         int effectToSelect = (int) Math.round(Math.random()*8);
 
         switch (effectToSelect){
             case 0:
-                player.addPotionEffect(PotionEffectType.SLOW_DIGGING.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.SLOW_DIGGING.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 1:
-                player.addPotionEffect(PotionEffectType.HUNGER.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.HUNGER.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 2:
-                player.addPotionEffect(PotionEffectType.POISON.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.POISON.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 3:
-                player.addPotionEffect(PotionEffectType.SLOW.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.SLOW.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 4:
-                player.addPotionEffect(PotionEffectType.WEAKNESS.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.WEAKNESS.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 5:
-                player.addPotionEffect(PotionEffectType.BLINDNESS.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.BLINDNESS.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 6:
-                player.addPotionEffect(PotionEffectType.CONFUSION.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.CONFUSION.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 7:
-                player.addPotionEffect(PotionEffectType.DARKNESS.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.DARKNESS.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
                 break;
             case 8:
-                player.addPotionEffect(PotionEffectType.WITHER.createEffect((int) Math.round(Math.random()*200+10), (int) Math.round(Math.random()*5+1)));
+                player.addPotionEffect(PotionEffectType.WITHER.createEffect((int) Math.round(Math.random()*200+15), (int) Math.round(Math.random()*5+1)));
 
         }
 
     }
 
+    /**
+     * Causes a bad world event to happen to the player (spawns in something to negatively impact gameplay)
+     * @param player
+     * @param event
+     */
     private static void causeBadWorldEvent(Player player, BlockBreakEvent event){
 
         int effectToSelect = (int) Math.round(Math.random()*8);
@@ -92,6 +104,11 @@ public class BlockBreakOutcomes {
         }
     }
 
+    //TODO: Figure out why this isn't working as intended.
+    /**
+     * Generates a cage of cobwebs
+     * @param player
+     */
     private static void generateCobwebCage(Player player){
         Location location = player.getLocation();
 
@@ -114,6 +131,10 @@ public class BlockBreakOutcomes {
 
     }
 
+    /**
+     * Spawns two water blocks on the player's location.
+     * @param player
+     */
     private static void floodPlayer(Player player){
         Location location = player.getLocation();
 
@@ -122,6 +143,11 @@ public class BlockBreakOutcomes {
 
     }
 
+    /**
+     * Spawns a piece of TNT at the block broken by the player.
+     * @param player
+     * @param event
+     */
     private static void spawnPieceOfTNTAtBlock(Player player, BlockBreakEvent event){
         Location blockBreakLocation = event.getBlock().getLocation();
         World world = player.getWorld();
@@ -130,6 +156,11 @@ public class BlockBreakOutcomes {
 
     }
 
+
+    /**
+     * Spawns a piece of tnt at the players location.
+     * @param player
+     */
     private static void spawnPieceOfTNTAtPlayer(Player player){
         Location location = player.getLocation();
         World world = player.getWorld();
@@ -155,12 +186,21 @@ public class BlockBreakOutcomes {
 
     }
 
+    /**
+     * Spawns lava above the player.
+     * @param player
+     */
     private static void dumpLavaOnPlayer(Player player){
         Location location = player.getLocation();
         location.add(0,2, 0);
         location.getBlock().setType(Material.LAVA);
     }
 
+    /**
+     * Spawns a vindicator (pillager) at the block most recently broken by the player.
+     * @param player
+     * @param event
+     */
     private static void spawnPillagerAtBlock(Player player, BlockBreakEvent event){
         Location blockBreakLocation = event.getBlock().getLocation();
         World world = player.getWorld();
@@ -169,6 +209,11 @@ public class BlockBreakOutcomes {
 
     }
 
+    /**
+     * Spawns an illusioner at the block most recently broke by the player.
+     * @param player
+     * @param event
+     */
     private static void spawnIllusionerAtBlock(Player player, BlockBreakEvent event){
         Location blockBreakLocation = event.getBlock().getLocation();
         World world = player.getWorld();
@@ -177,6 +222,10 @@ public class BlockBreakOutcomes {
 
     }
 
+    /**
+     * Teleports the player slightly.
+     * @param player
+     */
     private static void teleportPlayerSlightly(Player player){
         player.teleport(player.getLocation().add(Math.random()*7, Math.random()*3, Math.random()*7));
 

@@ -34,11 +34,11 @@ public class BlockHandler implements Listener {
 
         double chanceToPunishPlayer = Math.random()*1000;
 
-        if (chanceToPunishPlayer < 200){
+        if (chanceToPunishPlayer < 150){
             BlockBreakOutcomes.punishPlayer(player, event);
         }
 
-        player.sendMessage("block break testing");
+        //player.sendMessage("block break testing");
 
     }
 
@@ -52,7 +52,7 @@ public class BlockHandler implements Listener {
             BlockPlaceOutcomes.playerReward(event.getPlayer());
         }
 
-        event.getPlayer().sendMessage("block place testing");
+        //event.getPlayer().sendMessage("block place testing");
 
 
     }
@@ -103,9 +103,6 @@ public class BlockHandler implements Listener {
 //        player.sendMessage("ugly");
 //
 //    }
-
-
-
 
 
 }

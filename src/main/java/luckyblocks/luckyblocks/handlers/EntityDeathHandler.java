@@ -84,10 +84,10 @@ public class EntityDeathHandler implements Listener {
 
 
 
-                player.sendMessage("Chicken death true");
+                //player.sendMessage("Chicken death true");
             }
 
-            player.sendMessage("Chicken death false");
+            //player.sendMessage("Chicken death false");
 
             //Randomly determine if there will be an entity death effect
             int probEntityDeathEffect = (int) Math.round(Math.random()*10);

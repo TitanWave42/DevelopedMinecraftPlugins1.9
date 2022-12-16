@@ -51,6 +51,7 @@ public class PlayerHandler implements Listener {
         }
 
 
+        //Handles greeting the player.
         new DelayedTask(() -> {
             player.sendMessage(ChatColor.GREEN + "Welcome " + player.getName() + ChatColor.GREEN +
                     " to the LuckyBlocks speedrun event. " + ChatColor.GREEN +

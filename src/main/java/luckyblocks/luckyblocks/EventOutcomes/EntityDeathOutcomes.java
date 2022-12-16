@@ -89,15 +89,15 @@ public class EntityDeathOutcomes {
         if (isChicken){
             entityKiller.playEffect(EntityEffect.ENTITY_POOF);
             entityKiller.sendMessage("FOOD POISONING - courtesy of the Chickens");
-            entityKiller.addPotionEffect(PotionEffectType.CONFUSION.createEffect(50, 10));
-            entityKiller.addPotionEffect(PotionEffectType.HUNGER.createEffect(50, 2));
-            entityKiller.addPotionEffect(PotionEffectType.POISON.createEffect(30, 1));
+            entityKiller.addPotionEffect(PotionEffectType.WEAKNESS.createEffect(200, 3));
+            entityKiller.addPotionEffect(PotionEffectType.HUNGER.createEffect(200, 2));
+            entityKiller.addPotionEffect(PotionEffectType.POISON.createEffect(200, 1));
         }
 
         int veryBadOutCome = (int) Math.round(Math.random()*100);
 
         //Low chance of a truly bad outcome occurring.
-        if (veryBadOutCome < 5) {
+        if (veryBadOutCome == 1) {
             spawnWither(entityKiller);
         } else if (veryBadOutCome == 10){
             bigDaddyExplosion(entityKiller);
@@ -167,7 +167,7 @@ public class EntityDeathOutcomes {
 
         World world = player.getWorld();
         Location spawnLocation = player.getLocation();
-        spawnLocation = spawnLocation.add(Math.random()*10, Math.random()*10, Math.random()*4);
+        spawnLocation = spawnLocation.add(Math.random()*10, Math.random()*4, Math.random()*10);
 
         world.spawnEntity(spawnLocation, EntityType.RAVAGER);
     }
@@ -188,7 +188,7 @@ public class EntityDeathOutcomes {
 
         //Spawn the piglins
         while (numPiglin > 0){
-            world.spawnEntity(spawnLocation.add(Math.random()*5, Math.random()*5, 0), EntityType.PIGLIN);
+            world.spawnEntity(spawnLocation.add(Math.random()*5, Math.random()*6, 5), EntityType.PIGLIN);
             numPiglin--;
         }
 
@@ -217,12 +217,12 @@ public class EntityDeathOutcomes {
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
-        int numTNT = (int) Math.round(Math.random()*20) + 10;
+        int numTNT = (int) Math.round(Math.random()*50) + 10;
 
         while (numTNT > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnEntity(spawnLocation.add(Math.random()*5, Math.random()*5, Math.random()*5+10), EntityType.PRIMED_TNT);
+            world.spawnEntity(spawnLocation.add(Math.random()*5, Math.random()*5+10, Math.random()*5), EntityType.PRIMED_TNT);
 
             numTNT--;
 
@@ -244,7 +244,7 @@ public class EntityDeathOutcomes {
         while (numAnvils > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*10, Math.random()*30+20), Material.ANVIL.createBlockData());
+            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*30+20, Math.random()*30), Material.ANVIL.createBlockData());
 
             numAnvils--;
 
@@ -260,7 +260,7 @@ public class EntityDeathOutcomes {
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
-        world.createExplosion(spawnLocation, 5);
+        world.createExplosion(spawnLocation, 3);
 
     }
 
@@ -284,7 +284,7 @@ public class EntityDeathOutcomes {
     private static void telePortPlayerRandomly(Player player){
         Location playerLocation = player.getLocation();
 
-        playerLocation.add(Math.random()*10,Math.random()*10,Math.random()*5);
+        playerLocation.add(Math.random()*10,Math.random()*5,Math.random()*10);
 
         player.teleport(playerLocation);
     }

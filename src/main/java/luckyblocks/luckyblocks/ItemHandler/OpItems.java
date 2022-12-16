@@ -28,7 +28,7 @@ public class OpItems {
 
         createBoingoStick();
         createGoatedBreastPlate();
-        createKFCluck();
+        kFCluck = createKFCluck();
         createSwordOfSlaying();
         createGingerSnap();
         createDoorOfDeath();
@@ -38,8 +38,9 @@ public class OpItems {
     /**
      * create KFCluck item.
      */
-    private static void createKFCluck(){
-        ItemStack item = new ItemStack(Material.COOKED_CHICKEN, 1);
+    private static ItemStack createKFCluck(){
+        ItemStack item = new ItemStack(Material.COOKED_CHICKEN);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 100);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("KFCluckOff");
         List<String> lore = new ArrayList<>();
@@ -48,8 +49,7 @@ public class OpItems {
         meta.addEnchant(Enchantment.FIRE_ASPECT, 50, false);
         meta.addEnchant(Enchantment.DAMAGE_ALL, 10000, false);
         item.setItemMeta(meta);
-        kFCluck = item;
-
+        return item;
     }
 
 

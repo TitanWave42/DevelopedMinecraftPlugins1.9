@@ -30,7 +30,7 @@ public class EntityDeathOutcomes {
         int chance = (int) Math.round(Math.random()*20);
 
         // one fourth chance of something bad and one 20th chance of something good happening
-        if (chance < 10){
+        if (chance <= 10){
             //bad outcome
             badOutcome(entityKiller, isChicken);
         } else if (chance > 10){
@@ -87,7 +87,7 @@ public class EntityDeathOutcomes {
         //Chicken revenge logic.  I find it funny that I'm literally writing a war between
         //fowl and human interwoven in the larger speedrunning plugin.  Truly what has my life come to?
         if (isChicken){
-            entityKiller.playEffect(EntityEffect.ENTITY_POOF);
+            entityKiller.playEffect(EntityEffect.HURT_EXPLOSION);
             entityKiller.sendMessage("FOOD POISONING - courtesy of the Chickens");
             entityKiller.addPotionEffect(PotionEffectType.WEAKNESS.createEffect(200, 3));
             entityKiller.addPotionEffect(PotionEffectType.HUNGER.createEffect(200, 2));
@@ -104,7 +104,7 @@ public class EntityDeathOutcomes {
         } else {
 
             //Handle normal bad outcomes
-            int badOutcome = (int) Math.round(Math.random()*5);
+            int badOutcome = (int) Math.round(Math.random()*6);
 
             switch (badOutcome){
                 case 0 :
@@ -124,6 +124,9 @@ public class EntityDeathOutcomes {
                     break;
                 case 5:
                     telePortPlayerRandomly(entityKiller);
+                    break;
+                case 6:
+                    spawnRavager(entityKiller);
 
             }
         }
@@ -140,7 +143,7 @@ public class EntityDeathOutcomes {
         World world = entityKiller.getWorld();
 
         Location spawnLocation = entityKiller.getLocation();
-        spawnLocation = spawnLocation.add(Math.random()*10, Math.random()*10, Math.random()*10);
+        spawnLocation = spawnLocation.add(Math.random()*5, Math.random()*5, Math.random()*5);
 
         world.spawnEntity(spawnLocation, EntityType.WITHER);
     }
@@ -154,7 +157,7 @@ public class EntityDeathOutcomes {
 
         World world = player.getWorld();
         Location spawnLocation = player.getLocation();
-        spawnLocation = spawnLocation.add(Math.random()*10, Math.random()*10, Math.random()*10);
+        spawnLocation = spawnLocation.add(Math.random()*5, Math.random()*5, Math.random()*5);
 
         world.spawnEntity(spawnLocation, EntityType.GHAST);
     }
@@ -167,7 +170,7 @@ public class EntityDeathOutcomes {
 
         World world = player.getWorld();
         Location spawnLocation = player.getLocation();
-        spawnLocation = spawnLocation.add(Math.random()*10, Math.random()*4, Math.random()*10);
+        spawnLocation = spawnLocation.add(Math.random()*5, Math.random()*4, Math.random()*5);
 
         world.spawnEntity(spawnLocation, EntityType.RAVAGER);
     }
@@ -217,12 +220,12 @@ public class EntityDeathOutcomes {
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
-        int numTNT = (int) Math.round(Math.random()*50) + 10;
+        int numTNT = (int) Math.round(Math.random()*50) + 30;
 
         while (numTNT > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnEntity(spawnLocation.add(Math.random()*5, Math.random()*5+10, Math.random()*5), EntityType.PRIMED_TNT);
+            world.spawnEntity(spawnLocation.add(Math.random()*10, Math.random()*10+20, Math.random()*10), EntityType.PRIMED_TNT);
 
             numTNT--;
 
@@ -239,12 +242,12 @@ public class EntityDeathOutcomes {
         Location spawnLocation = player.getLocation();
         World world = player.getWorld();
 
-        int numAnvils = (int) Math.round(Math.random()*150) + 50;
+        int numAnvils = (int) Math.round(Math.random()*200) + 50;
 
         while (numAnvils > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*30+20, Math.random()*30),
+            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*30+40, Math.random()*10),
                     Material.ANVIL.createBlockData());
 
             numAnvils--;

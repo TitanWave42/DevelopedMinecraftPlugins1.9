@@ -1,5 +1,6 @@
 package luckyblocks.luckyblocks.ItemHandler;
 
+import net.md_5.bungee.api.chat.hover.content.Item;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -26,12 +27,12 @@ public class OpItems {
 
     public static void init(){
 
-        createBoingoStick();
-        createGoatedBreastPlate();
+        boingoStick = createBoingoStick();
+        goatedBreastPlate = createGoatedBreastPlate();
         kFCluck = createKFCluck();
-        createSwordOfSlaying();
-        createGingerSnap();
-        createDoorOfDeath();
+        swordOfSlaying = createSwordOfSlaying();
+        gingerSnap = createGingerSnap();
+        doorOfDeath = createDoorOfDeath();
 
     }
 
@@ -57,36 +58,32 @@ public class OpItems {
     /**
      * create swordOfSlaying item.
      */
-    private static void createSwordOfSlaying(){
+    private static ItemStack createSwordOfSlaying(){
         ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName("Sword Of Swording");
-        List<String> lore = new ArrayList<>();
-        lore.add("Stabby Sabby");
-        meta.setLore(lore);
+
 
         item.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
         item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
         item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
         item.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 10);
 
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("Sword Of Swording");
+        List<String> lore = new ArrayList<>();
+        lore.add("Stabby Sabby");
+        meta.setLore(lore);
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
-        swordOfSlaying = item;
+        return item;
 
     }
 
     /**
      * Create goatedBreastPlate item.
      */
-    private static void createGoatedBreastPlate(){
+    private static ItemStack createGoatedBreastPlate(){
         ItemStack item = new ItemStack(Material.NETHERITE_CHESTPLATE, 1);
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName("Anime Breast Plate");
-        List<String> lore = new ArrayList<>();
-        lore.add("At least an H cup");
-        meta.setLore(lore);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
         item.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10);
@@ -97,24 +94,33 @@ public class OpItems {
         item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
         item.addUnsafeEnchantment(Enchantment.THORNS, 10);
 
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("Anime Breast Plate");
+        List<String> lore = new ArrayList<>();
+        lore.add("At least an H cup");
+        meta.setLore(lore);
+
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
-        goatedBreastPlate = item;
+        return item;
     }
 
 
     /**
      * creates gingerSnap item.
      */
-    private static void createGingerSnap(){
+    private static ItemStack createGingerSnap(){
         ItemStack item = new ItemStack(Material.COOKIE, 1);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 100);
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
+
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("GingerSnap of Rending and Ruin");
         List<String> lore = new ArrayList<>();
         lore.add("And with this cookie I ");
         lore.add("shall Snap thy presence from mine.");
-        lore.add("With it I shall bring you rend your armour");
+        lore.add("With it I shall rend your armour");
         lore.add("topple your cities, and bring ruin upon you.");
         lore.add("With this cookie I shall bring you low.");
         lore.add("For the wages of sin is death,");
@@ -123,13 +129,10 @@ public class OpItems {
         meta.setLore(lore);
 
 
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 100);
-        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
-
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         item.setItemMeta(meta);
-        gingerSnap = item;
+        return item;
 
     }
 
@@ -137,20 +140,20 @@ public class OpItems {
     /**
      * Create boingoStick item.
      */
-    private static void createBoingoStick(){
+    private static ItemStack createBoingoStick(){
         ItemStack item = new ItemStack(Material.STICK, 1);
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 100);
+
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Bye Bye Stick");
         List<String> lore = new ArrayList<>();
         lore.add("Tap to make problem disappear.");
         meta.setLore(lore);
 
-        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 100);
-
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
-        boingoStick = item;
+        return item;
 
     }
 
@@ -158,21 +161,23 @@ public class OpItems {
      * creates the door of death.
      */
 
-    private static void createDoorOfDeath(){
+    private static ItemStack createDoorOfDeath(){
         ItemStack item = new ItemStack(Material.OAK_DOOR, 1);
+
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
+
+
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName("Bye Bye Stick");
+        meta.setDisplayName("Doory the Door");
         List<String> lore = new ArrayList<>();
         lore.add("It's aDOORable.");
         meta.setLore(lore);
 
-        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 20);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
-
 
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
-        doorOfDeath = item;
+        return item;
 
     }
 

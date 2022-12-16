@@ -58,7 +58,7 @@ public class BlockBreakOutcomes {
 
     private static void causeBadWorldEvent(Player player, BlockBreakEvent event){
 
-        int effectToSelect = (int) Math.round(Math.random()*6);
+        int effectToSelect = (int) Math.round(Math.random()*8);
 
         switch (effectToSelect){
             case 0:
@@ -81,6 +81,13 @@ public class BlockBreakOutcomes {
                 break;
             case 6:
                 teleportPlayerSlightly(player);
+                break;
+            case 7:
+                spawnMildTNTRain(player);
+                break;
+            case 8:
+                spawnPieceOfTNTAtPlayer(player);
+                break;
 
         }
     }
@@ -120,6 +127,31 @@ public class BlockBreakOutcomes {
         World world = player.getWorld();
 
         world.spawnEntity(blockBreakLocation, EntityType.PRIMED_TNT);
+
+    }
+
+    private static void spawnPieceOfTNTAtPlayer(Player player){
+        Location location = player.getLocation();
+        World world = player.getWorld();
+
+        world.spawnEntity(location, EntityType.PRIMED_TNT);
+
+    }
+
+    private static void spawnMildTNTRain(Player player){
+        Location spawnLocation = player.getLocation();
+        World world = player.getWorld();
+
+        int numTNT = (int) Math.round(Math.random()*10) + 5;
+
+        while (numTNT > 0){
+
+            spawnLocation = player.getLocation();
+            world.spawnEntity(spawnLocation.add(Math.random()*3, Math.random()*10+10, Math.random()*3), EntityType.PRIMED_TNT);
+
+            numTNT--;
+
+        }
 
     }
 

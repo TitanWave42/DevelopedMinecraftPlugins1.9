@@ -54,14 +54,14 @@ public class PlayerHandler implements Listener {
         new DelayedTask(() -> {
             player.sendMessage(ChatColor.GREEN + "Welcome " + player.getName() + ChatColor.GREEN +
                     " to the LuckyBlocks speedrun event. " + ChatColor.GREEN +
-                    "As I was creating this plugin my sanity slowly slipped as my" + ChatColor.GREEN +
+                    "As I was creating this plugin my sanity slowly slipped as my " + ChatColor.RED +
                     "BloOd BeCaMe R Ed bulL and M_y MInD OnE W   iTH ThE UnIVEsE.");
         }, 20*5);
 
         new DelayedTask(() -> {
             player.sendMessage(ChatColor.GREEN + "Suffice to say this will be difficult for you. " + ChatColor.GREEN +
                     "The gameplay balance is nonexistent." + ChatColor.GREEN +
-                    " And I who have suffered " + "in my labor shall rejoice and exhault in the suffering that" +
+                    " And I who have suffered " + "in my labor shall rejoice and exuberate in the suffering that" +
                     ChatColor.GREEN +
                     " you are about to experience.");
         }, 20*15);
@@ -74,15 +74,15 @@ public class PlayerHandler implements Listener {
 
 
         new DelayedTask(() -> {
-            player.sendMessage(ChatColor.GREEN + "KILL THE CHICKENS, KILL THE CHICKENS, KILL THE CHICKENS, " +
-                    "KILL THE CHICKENS, " + ChatColor.GREEN + "KILL THE CHICKENS...\n" + "KILL THE CHICKENS, " +
-                    "KILL THE CHICKENS, KILL THE CHICKENS," + ChatColor.GREEN + " KILL THE CHICKENS, " + ChatColor.GREEN +
-                    "KILL THE CHICKENS...\n"+"KILL THE CHICKENS, KILL THE CHICKENS, " + ChatColor.GREEN +
+            player.sendMessage(ChatColor.RED + "KILL THE CHICKENS, KILL THE CHICKENS, KILL THE CHICKENS, " +
+                    "KILL THE CHICKENS, " + ChatColor.RED + "KILL THE CHICKENS...\n" + "KILL THE CHICKENS, " +
+                    "KILL THE CHICKENS, KILL THE CHICKENS," + ChatColor.RED + " KILL THE CHICKENS, " + ChatColor.RED +
+                    "KILL THE CHICKENS...\n"+"KILL THE CHICKENS, KILL THE CHICKENS, " + ChatColor.RED +
                     "KILL THE CHICKENS," + " KILL THE CHICKENS, " + "KILL THE CHICKENS...");
         }, 20*30);
 
         new DelayedTask(() -> {
-            player.sendMessage(ChatColor.RED + "Good luck >:)");
+            player.sendMessage(ChatColor.GOLD + "Good luck >:)");
         }, 20*35);
 
 

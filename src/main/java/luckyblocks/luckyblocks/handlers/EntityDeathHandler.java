@@ -74,9 +74,9 @@ public class EntityDeathHandler implements Listener {
 
                 //Effectively Ops the player with the most chicken kills at any given time.
                 player.addPotionEffect(PotionEffectType.INCREASE_DAMAGE.createEffect(20*60*1000, 6));
-                player.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE.createEffect(20*60*1000, 6));
+                player.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE.createEffect(20*60*1000, 3));
                 player.addPotionEffect(PotionEffectType.FIRE_RESISTANCE.createEffect(20*60*1000, 6));
-                player.addPotionEffect(PotionEffectType.REGENERATION.createEffect(20*60*1000, 6));
+                player.addPotionEffect(PotionEffectType.REGENERATION.createEffect(20*60*1000, 2));
                 player.addPotionEffect(PotionEffectType.SPEED.createEffect(20*60*1000, 1));
                 player.addPotionEffect(PotionEffectType.FAST_DIGGING.createEffect(20*60*1000, 3));
 

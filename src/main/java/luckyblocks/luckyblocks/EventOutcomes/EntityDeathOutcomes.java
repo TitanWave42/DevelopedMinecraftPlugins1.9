@@ -225,7 +225,7 @@ public class EntityDeathOutcomes {
         while (numTNT > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnEntity(spawnLocation.add(Math.random()*10, Math.random()*10+20, Math.random()*10), EntityType.PRIMED_TNT);
+            world.spawnEntity(spawnLocation.add(Math.random()*20, Math.random()*10+30, Math.random()*20), EntityType.PRIMED_TNT);
 
             numTNT--;
 
@@ -247,7 +247,7 @@ public class EntityDeathOutcomes {
         while (numAnvils > 0){
 
             spawnLocation = player.getLocation();
-            world.spawnFallingBlock(spawnLocation.add(Math.random()*10, Math.random()*30+40, Math.random()*10),
+            world.spawnFallingBlock(spawnLocation.add(Math.random()*20, Math.random()*100+40, Math.random()*20),
                     Material.ANVIL.createBlockData());
 
             numAnvils--;

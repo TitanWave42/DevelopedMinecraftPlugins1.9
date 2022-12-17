@@ -62,10 +62,10 @@ public class OpItems {
         ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
 
 
-        item.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
-        item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 10);
+        item.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 15);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 15);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 15);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 15);
 
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Sword Of Swording");
@@ -85,14 +85,14 @@ public class OpItems {
     private static ItemStack createGoatedBreastPlate(){
         ItemStack item = new ItemStack(Material.NETHERITE_CHESTPLATE, 1);
 
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10);
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 10);
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 10);
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 10);
-        item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 10);
-        item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
-        item.addUnsafeEnchantment(Enchantment.THORNS, 10);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 20);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 20);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 20);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 20);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 20);
+        item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 20);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 20);
+        item.addUnsafeEnchantment(Enchantment.THORNS, 20);
 
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Anime Breast Plate");
@@ -164,8 +164,8 @@ public class OpItems {
     private static ItemStack createDoorOfDeath(){
         ItemStack item = new ItemStack(Material.OAK_DOOR, 1);
 
-        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
+        item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 5);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
 
 
         ItemMeta meta = item.getItemMeta();

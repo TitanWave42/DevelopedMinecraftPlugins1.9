@@ -89,7 +89,7 @@ public class BlockBreakOutcomes {
                 spawnPillagerAtBlock(player, event);
                 break;
             case 5:
-                spawnIllusionerAtBlock(player, event);
+                spawnIllusionerOrCreeperAtBlock(player, event);
                 break;
             case 6:
                 teleportPlayerSlightly(player);
@@ -210,15 +210,21 @@ public class BlockBreakOutcomes {
     }
 
     /**
-     * Spawns an illusioner at the block most recently broke by the player.
+     * Spawns an illusioner or creeper at the block most recently broke by the player.
      * @param player
      * @param event
      */
-    private static void spawnIllusionerAtBlock(Player player, BlockBreakEvent event){
+    private static void spawnIllusionerOrCreeperAtBlock(Player player, BlockBreakEvent event){
+        int rand = (int) Math.round(Math.random());
+
         Location blockBreakLocation = event.getBlock().getLocation();
         World world = player.getWorld();
 
-        world.spawnEntity(blockBreakLocation, EntityType.ILLUSIONER);
+        if (rand == 1){
+            world.spawnEntity(blockBreakLocation, EntityType.ILLUSIONER);
+        } else {
+            world.spawnEntity(blockBreakLocation, EntityType.CREEPER);
+        }
 
     }
 
